@@ -16,6 +16,15 @@ const spartan = League_Spartan({
 export const metadata: Metadata = {
   title: "The Planets",
   description: "8-page fact site for all planets in our solar system.",
+  icons: {
+    icon: [
+      {
+        url: "/favicons/galaxy.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
