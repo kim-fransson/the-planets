@@ -1,13 +1,18 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: oklch(0.15 0.06 277.88);
+  --foreground: oklch(1 0 0);
+  --neutral: oklch(0.61 0.02 285.77);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --hover: oklch(0.35 0.04 284.16);
+
+  --mercury: oklch(0.66 0.1 221.86);
+  --venus: oklch(0.77 0.14 67.7);
+  --earth: oklch(0.5 0.23 293.41);
+  --mars: oklch(0.59 0.17 33.03);
+  --jupiter: oklch(0.59 0.2 27.32);
+  --saturn: oklch(0.59 0.17 39.74);
+  --uranus: oklch(0.73 0.13 175.76);
+  --neptune: oklch(0.56 0.21 263.38);
 }
 
 html,
@@ -18,10 +23,49 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background) url("/assets/background-stars.svg") no-repeat
+    50% 10%;
+  font-family: var(--font-spartan);
+  font-size: 0.875rem;
+  line-height: 1.5625rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: var(--font-antonio);
+  font-size: 5rem;
+  line-height: 6.5rem;
+}
+
+h2 {
+  font-family: var(--font-antonio);
+  font-size: 2.5rem;
+  line-height: 3.25rem;
+  letter-spacing: -0.0938rem;
+}
+
+h3 {
+  font-family: var(--font-spartan);
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1.5625rem;
+  letter-spacing: 0.1607rem;
+}
+
+h4 {
+  font-family: var(--font-spartan);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  line-height: 1.5625rem;
+  letter-spacing: 0.0625rem;
 }
 
 * {
@@ -33,10 +77,4 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
