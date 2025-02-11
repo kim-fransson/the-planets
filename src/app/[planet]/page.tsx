@@ -3,9 +3,9 @@ import data from "../data.json";
 import { redirect } from "next/navigation";
 
 interface PlanetPageProps {
-  params: {
+  params: Promise<{
     planet: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -14,7 +14,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function PlanetPage({ params }: PlanetPageProps) {
+export default async function PlanetPage(props: PlanetPageProps) {
+  const params = await props.params;
   const planet = data.find(
     (p: Planet) => p.name.toLowerCase() === params.planet
   );
