@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Antonio, League_Spartan } from "next/font/google";
 import "./globals.css";
+import ThemeSetter from "./components/ThemeSetter";
 
 const antonio = Antonio({
   variable: "--font-antonio",
@@ -25,6 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${antonio.variable} ${spartan.variable}`}>
+        <ThemeSetter />
         {children}
       </body>
     </html>
