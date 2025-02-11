@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Antonio, League_Spartan } from "next/font/google";
 import "./globals.css";
 import ThemeSetter from "./components/ThemeSetter";
@@ -13,20 +12,6 @@ const spartan = League_Spartan({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "The Planets",
-  description: "8-page fact site for all planets in our solar system.",
-  icons: {
-    icon: [
-      {
-        url: "/favicons/galaxy.png",
-        sizes: "32x32",
-        type: "image/png",
-      },
-    ],
-  },
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${antonio.variable} ${spartan.variable}`}>
         <ThemeSetter />
+        <header></header>
         {children}
       </body>
     </html>
