@@ -48,9 +48,5 @@ export default async function PlanetPage(props: PlanetPageProps) {
     redirect("/earth");
   }
 
-  return (
-    <main>
-      <h1>{planet.name}</h1>
-    </main>
-  );
+  return <main></main>;
 }
