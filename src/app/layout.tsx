@@ -3,6 +3,11 @@ import "./globals.css";
 import styles from "./layout.module.css";
 
 import ThemeSetter from "./components/ThemeSetter";
+import { ClientProviders } from "./providers";
+
+import data from "./data.json";
+import { LocalizedStringProvider } from "react-aria-components/i18n";
+import Link from "./components/navigation/Link";
 
 const antonio = Antonio({
   variable: "--font-antonio",
@@ -22,11 +27,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${antonio.variable} ${spartan.variable}`}>
+        <LocalizedStringProvider locale="en" />
+        <ClientProviders>
+          <nav className={styles.navbar}>
+            <span className={styles.logo}>the planets</span>
+
+            <ul className={styles.list}>
+              {data.map((planet) => (
+                <li className={styles.listItem} key={planet.name}>
+                  <Link href={`/${planet.name}`}>{planet.name}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          {children}
+        </ClientProviders>
         <ThemeSetter />
-        <header className={styles.header}>
-          <span className={styles.logo}>the planets</span>
-        </header>
-        {children}
       </body>
     </html>
   );

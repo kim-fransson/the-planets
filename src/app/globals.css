@@ -4,38 +4,47 @@
   --primary-color: oklch(0.5 0.23 293.41); /* Default (Earth) */
   --neutral: oklch(0.61 0.02 285.77);
   --hover: oklch(0.35 0.04 284.16);
+
+  --mercury-color: oklch(0.66 0.1 221.86);
+  --venus-color: oklch(0.77 0.14 67.7);
+  --earth-color: oklch(0.5 0.23 293.41);
+  --mars-color: oklch(0.59 0.17 33.03);
+  --jupiter-color: oklch(0.59 0.2 27.32);
+  --saturn-color: oklch(0.59 0.17 39.74);
+  --uranus-color: oklch(0.73 0.13 175.76);
+  --neptune-color: oklch(0.56 0.21 263.38);
 }
 
 [data-theme="mercury"] {
-  --primary-color: oklch(0.66 0.1 221.86);
+  --primary-color: var(--mercury-color);
 }
 
 [data-theme="venus"] {
-  --primary-color: oklch(0.77 0.14 67.7);
+  --primary-color: var(--venus-color);
 }
 
 [data-theme="earth"] {
-  --primary-color: oklch(0.5 0.23 293.41);
+  --primary-color: var(--earth-color);
 }
 
 [data-theme="mars"] {
-  --primary-color: oklch(0.59 0.17 33.03);
+  --primary-color: var(--mars-color);
 }
 
 [data-theme="jupiter"] {
-  --primary-color: oklch(0.59 0.2 27.32);
+  --primary-color: var(--jupiter-color);
 }
 
 [data-theme="saturn"] {
-  --primary-color: oklch(0.59 0.17 39.74);
+  --primary-color: var(--saturn-color);
 }
 
 [data-theme="uranus"] {
-  --primary-color: oklch(0.73 0.13 175.76);
+  --primary-color: var(--uranus-color);
 }
 
 [data-theme="neptune"] {
-  --primary-color: oklch(0.56 0.21 263.38);
+  --primary-color: var(--neptune-color);
 }
 
 html,
@@ -100,4 +109,8 @@ h4 {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+li {
+  list-style-type: none;
 }

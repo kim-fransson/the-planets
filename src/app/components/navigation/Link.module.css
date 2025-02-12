@@ -1,0 +1,54 @@
+.link {
+  outline: none;
+}
+
+.link[href="/mercury"] {
+  --line-color: var(--mercury-color);
+}
+
+.link[href="/venus"] {
+  --line-color: var(--venus-color);
+}
+
+.link[href="/earth"] {
+  --line-color: var(--earth-color);
+}
+
+.link[href="/mars"] {
+  --line-color: var(--mars-color);
+}
+
+.link[href="/jupiter"] {
+  --line-color: var(--jupiter-color);
+}
+
+.link[href="/saturn"] {
+  --line-color: var(--saturn-color);
+}
+
+.link[href="/uranus"] {
+  --line-color: var(--uranus-color);
+}
+
+.link[href="/neptune"] {
+  --line-color: var(--neptune-color);
+}
+
+.default {
+  position: relative;
+  font-family: var(--font-spartan);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  line-height: 1.5625rem;
+  letter-spacing: 0.0625rem;
+  text-transform: uppercase;
+  padding: 22px 16px;
+}
+
+.activeLine {
+  position: absolute;
+  height: 4px;
+  top: 0;
+  width: calc(100% - 32px);
+  background: var(--line-color);
+}

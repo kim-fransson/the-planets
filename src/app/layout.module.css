@@ -1,8 +1,8 @@
-/* left: 32px;
-top: 22px; */
-
-.header {
-  padding: 1.375rem 2rem;
+.navbar {
+  padding: 0 16px 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid
     color-mix(in oklch, var(--foreground) 20%, transparent);
 }
@@ -13,4 +13,13 @@ top: 22px; */
   line-height: 2.25rem;
   letter-spacing: -0.0656rem;
   text-transform: uppercase;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.listItem {
+  display: flex;
 }
