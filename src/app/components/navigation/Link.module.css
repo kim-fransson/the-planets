@@ -1,11 +1,16 @@
 .link {
   outline: none;
   user-select: none;
+  color: color-mix(in oklch, var(--foreground) 75%, transparent);
 }
 
 .link[data-focus-visible] {
   outline: 2px solid var(--primary-color);
   outline-offset: -8px;
+}
+
+.link[data-hovered] {
+  color: var(--foreground);
 }
 
 .link[href="/mercury"] {
@@ -54,7 +59,13 @@
 .hoverLine {
   position: absolute;
   height: 4px;
-  top: 0;
+  bottom: 0;
   width: calc(100% - 32px);
   background: var(--line-color);
+}
+
+@media (width >= 1440px) {
+  .hoverLine {
+    top: 0;
+  }
 }

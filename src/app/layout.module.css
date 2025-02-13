@@ -1,8 +1,7 @@
 .navbar {
-  padding: 0 16px 0 32px;
+  padding: 18px 36px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border-bottom: 1px solid
     color-mix(in oklch, var(--foreground) 20%, transparent);
 }
@@ -16,10 +15,29 @@
 }
 
 .list {
-  display: flex;
-  align-items: center;
+  display: none;
 }
 
 .listItem {
   display: flex;
+}
+
+@media (width >= 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 32px 16px 0 32px;
+  }
+
+  .list {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (width >= 1440px) {
+  .navbar {
+    padding: 0 16px 0 32px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
