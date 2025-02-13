@@ -31,9 +31,9 @@ export default function Link({
         <>
           {isHovered && (
             <motion.div
-              className={styles.activeLine}
-              layoutId="activeLine"
-              key="activeLine"
+              className={styles.hoverLine}
+              layoutId="hoverLine"
+              key="hoverLine"
             />
           )}
           {children}

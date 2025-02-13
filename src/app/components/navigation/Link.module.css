@@ -1,5 +1,11 @@
 .link {
   outline: none;
+  user-select: none;
+}
+
+.link[data-focus-visible] {
+  outline: 2px solid var(--primary-color);
+  outline-offset: -8px;
 }
 
 .link[href="/mercury"] {
@@ -45,7 +51,7 @@
   padding: 22px 16px;
 }
 
-.activeLine {
+.hoverLine {
   position: absolute;
   height: 4px;
   top: 0;
