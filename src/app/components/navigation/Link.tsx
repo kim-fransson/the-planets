@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import styles from "./Link.module.css";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 
 import {
   LinkProps as AriaLinkProps,
