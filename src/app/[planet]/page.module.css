@@ -4,12 +4,15 @@
     "tabs"
     "section"
     "stats";
-  grid-template-rows: min-content 1fr 216px;
+  grid-template-rows: min-content 1fr auto;
   grid-template-columns: 1fr;
+  padding: 0 20px 40px 20px;
+  gap: 20px;
 }
 
 .tabs {
   display: flex;
+  margin: 0 -20px;
   justify-content: space-around;
   border-bottom: 1px solid
     color-mix(in oklch, var(--foreground) 20%, transparent);
@@ -18,12 +21,67 @@
 
 .section {
   grid-area: section;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+}
+
+.imageContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.surfaceImage {
+  position: absolute;
+  width: 100px;
+  translate: -50% 50%;
+  left: 50%;
+  bottom: 0;
+}
+
+.heading {
+  margin-top: 100px;
+  font-family: var(--font-antonio);
+  font-size: 2.5rem;
+  line-height: 3.25rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.text {
+  font-family: var(--font-spartan);
+  font-size: 0.6875rem;
+  line-height: 1.375rem;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.source {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  font-family: var(--font-spartan);
+  font-size: 0.75rem;
+  line-height: 1.5625rem;
+  color: color-mix(in oklch, var(--foreground) 50%, transparent);
+}
+
+.link {
+  outline: none;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .stats {
   grid-area: stats;
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 @media (width >= 768px) {

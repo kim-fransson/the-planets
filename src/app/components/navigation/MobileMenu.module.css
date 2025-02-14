@@ -20,7 +20,7 @@
   outline: none;
   height: 100%;
   display: grid;
-  padding: 64px 24px 100px 24px;
+  padding: 44px 20px;
 }
 
 @media (width >= 768px) {

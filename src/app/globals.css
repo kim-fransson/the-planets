@@ -64,42 +64,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  text-transform: uppercase;
-}
-
-h1 {
-  font-family: var(--font-antonio);
-  font-size: 5rem;
-  line-height: 6.5rem;
-}
-
-h2 {
-  font-family: var(--font-antonio);
-  font-size: 2.5rem;
-  line-height: 3.25rem;
-  letter-spacing: -0.0938rem;
-}
-
-h3 {
-  font-family: var(--font-spartan);
-  font-weight: 700;
-  font-size: 0.75rem;
-  line-height: 1.5625rem;
-  letter-spacing: 0.1607rem;
-}
-
-h4 {
-  font-family: var(--font-spartan);
-  font-weight: 700;
-  font-size: 0.6875rem;
-  line-height: 1.5625rem;
-  letter-spacing: 0.0625rem;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
