@@ -114,3 +114,8 @@ a {
 li {
   list-style-type: none;
 }
+
+button {
+  all: unset;
+  cursor: pointer;
+}

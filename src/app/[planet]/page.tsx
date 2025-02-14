@@ -1,48 +1,43 @@
+"use client";
+
 import { Planet } from "../types";
 import data from "../data.json";
-import { redirect } from "next/navigation";
-import { Metadata } from "next";
+import { redirect, usePathname } from "next/navigation";
+import ToggleButtonGroup from "../components/buttons/ToggleButtonGroup";
+import { useState } from "react";
+import { Key } from "react-aria-components";
+import ToggleButton from "../components/buttons/ToggleButton";
 
-interface PlanetPageProps {
-  params: Promise<{
-    planet: string;
-  }>;
-}
+import styles from "./page.module.css";
 
-export async function generateStaticParams() {
-  return data.map((planet: Planet) => ({
-    planet: planet.name,
-  }));
-}
+const sections = ["overview", "structure", "surface"];
 
-export async function generateMetadata(
-  props: PlanetPageProps
-): Promise<Metadata> {
-  const params = await props.params;
-  const planet = data.find((p: Planet) => p.name === params.planet);
-
-  return {
-    title: planet!.name,
-    description: planet!.overview.content,
-    icons: {
-      icon: [
-        {
-          url: `/favicons/${planet!.name}.png`,
-          sizes: "32x32",
-          type: "image/png",
-        },
-      ],
-    },
-  };
-}
-
-export default async function PlanetPage(props: PlanetPageProps) {
-  const params = await props.params;
-  const planet = data.find((p: Planet) => p.name === params.planet);
+export default function PlanetPage() {
+  const pathname = usePathname();
+  const planet = data.find((p: Planet) => pathname.includes(p.name));
 
   if (!planet) {
     redirect("/earth");
   }
 
-  return <main></main>;
+  const [selected, setSelected] = useState(new Set<Key>([sections[0]]));
+
+  // const selectedSection = [...selected].join(", ");
+
+  return (
+    <main>
+      <ToggleButtonGroup
+        disallowEmptySelection
+        className={styles.tabs}
+        selectedKeys={selected}
+        onSelectionChange={setSelected}
+      >
+        {sections.map((section) => (
+          <ToggleButton variant="tab" key={section} id={section}>
+            {section}
+          </ToggleButton>
+        ))}
+      </ToggleButtonGroup>
+    </main>
+  );
 }

@@ -1,6 +1,4 @@
 .button {
-  all: unset;
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,6 +7,8 @@
 }
 
 .modal {
+  position: absolute;
+  top: 73px;
   background: var(--background);
   outline: none;
   position: fixed;

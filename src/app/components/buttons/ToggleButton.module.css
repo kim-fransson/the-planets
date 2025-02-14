@@ -1,0 +1,23 @@
+.button {
+  font-family: var(--font-spartan);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.5625rem;
+  line-height: 0.625rem;
+  text-align: center;
+  letter-spacing: 0.1205rem;
+  text-transform: uppercase;
+  position: relative;
+
+  padding: 12px 0;
+}
+
+.underline {
+  position: absolute;
+  height: 4px;
+  bottom: 0;
+  width: 80px;
+  left: 50%;
+  translate: -50% 0;
+  background: var(--primary-color);
+}
