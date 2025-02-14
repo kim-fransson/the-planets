@@ -10,7 +10,7 @@ import {
 } from "react-aria-components";
 
 interface LinkProps extends AriaLinkProps {
-  variant?: "default";
+  variant?: "default" | "planet";
   className?: string;
 }
 
@@ -36,6 +36,7 @@ export default function Link({
               key="hoverLine"
             />
           )}
+          {variant === "planet" && <span className={styles.miniPlanet} />}
           {children}
         </>
       )}

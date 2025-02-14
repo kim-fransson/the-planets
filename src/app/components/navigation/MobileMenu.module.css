@@ -1,0 +1,29 @@
+.button {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color 200ms ease-in;
+}
+
+.modal {
+  background: var(--background);
+  outline: none;
+  position: fixed;
+  width: 100dvw;
+  height: calc(100dvh - 72px);
+}
+
+.dialog {
+  outline: none;
+  height: 100%;
+  display: grid;
+  padding: 64px 24px 100px 24px;
+}
+
+@media (width >= 768px) {
+  .button {
+    display: none;
+  }
+}

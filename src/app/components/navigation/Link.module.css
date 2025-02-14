@@ -1,59 +1,88 @@
 .link {
   outline: none;
   user-select: none;
-  color: color-mix(in oklch, var(--foreground) 75%, transparent);
-}
-
-.link[data-focus-visible] {
-  outline: 2px solid var(--primary-color);
-  outline-offset: -8px;
-}
-
-.link[data-hovered] {
-  color: var(--foreground);
+  text-transform: uppercase;
+  font-family: var(--font-spartan);
 }
 
 .link[href="/mercury"] {
-  --line-color: var(--mercury-color);
+  --planet-color: var(--mercury-color);
 }
 
 .link[href="/venus"] {
-  --line-color: var(--venus-color);
+  --planet-color: var(--venus-color);
 }
 
 .link[href="/earth"] {
-  --line-color: var(--earth-color);
+  --planet-color: var(--earth-color);
 }
 
 .link[href="/mars"] {
-  --line-color: var(--mars-color);
+  --planet-color: var(--mars-color);
 }
 
 .link[href="/jupiter"] {
-  --line-color: var(--jupiter-color);
+  --planet-color: var(--jupiter-color);
 }
 
 .link[href="/saturn"] {
-  --line-color: var(--saturn-color);
+  --planet-color: var(--saturn-color);
 }
 
 .link[href="/uranus"] {
-  --line-color: var(--uranus-color);
+  --planet-color: var(--uranus-color);
 }
 
 .link[href="/neptune"] {
-  --line-color: var(--neptune-color);
+  --planet-color: var(--neptune-color);
 }
 
-.default {
+.link.default {
   position: relative;
-  font-family: var(--font-spartan);
   font-weight: 700;
   font-size: 0.6875rem;
   line-height: 1.5625rem;
   letter-spacing: 0.0625rem;
-  text-transform: uppercase;
   padding: 22px 16px;
+  color: color-mix(in oklch, var(--foreground) 75%, transparent);
+  transition: color 200ms ease-in;
+}
+
+.link[data-hovered].default {
+  color: var(--foreground);
+}
+
+.link[data-focus-visible].default {
+  outline: 2px solid var(--primary-color);
+  outline-offset: -8px;
+}
+
+.link.planet {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
+  letter-spacing: 0.0852rem;
+  border-bottom: 1px solid
+    color-mix(in oklch, var(--foreground) 10%, transparent);
+}
+
+.link.planet:last-child {
+  border-bottom: none;
+}
+
+.link.planet > svg {
+  margin-left: auto;
+}
+
+.miniPlanet {
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: var(--planet-color);
+  border-radius: 100%;
 }
 
 .hoverLine {
@@ -61,7 +90,7 @@
   height: 4px;
   bottom: 0;
   width: calc(100% - 32px);
-  background: var(--line-color);
+  background: var(--planet-color);
 }
 
 @media (width >= 1440px) {

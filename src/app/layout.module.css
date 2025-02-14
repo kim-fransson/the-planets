@@ -2,6 +2,7 @@
   padding: 18px 36px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid
     color-mix(in oklch, var(--foreground) 20%, transparent);
 }

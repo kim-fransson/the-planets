@@ -8,6 +8,7 @@ import { ClientProviders } from "./providers";
 import data from "./data.json";
 import { LocalizedStringProvider } from "react-aria-components/i18n";
 import Link from "./components/navigation/Link";
+import MobileMenu from "./components/navigation/MobileMenu";
 
 const antonio = Antonio({
   variable: "--font-antonio",
@@ -39,6 +40,8 @@ export default function RootLayout({
                 </li>
               ))}
             </ul>
+
+            <MobileMenu />
           </nav>
           {children}
         </ClientProviders>
