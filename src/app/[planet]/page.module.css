@@ -1,17 +1,39 @@
+.main {
+  display: grid;
+  grid-template-areas:
+    "tabs"
+    "section"
+    "stats";
+  grid-template-rows: min-content 1fr 216px;
+  grid-template-columns: 1fr;
+}
+
 .tabs {
   display: flex;
   justify-content: space-around;
   border-bottom: 1px solid
     color-mix(in oklch, var(--foreground) 20%, transparent);
+  grid-area: tabs;
 }
 
-.imagesContainer {
-  height: 205px;
-  border: 1px solid red;
-  object-fit: contain;
+.section {
+  grid-area: section;
 }
 
 .stats {
+  grid-area: stats;
   display: grid;
-  gap: 8px;
+  gap: 10px;
+}
+
+@media (width >= 768px) {
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (width >= 1440px) {
+  .stats {
+    gap: 18px;
+  }
 }

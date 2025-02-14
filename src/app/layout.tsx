@@ -30,20 +30,22 @@ export default function RootLayout({
       <body className={`${antonio.variable} ${spartan.variable}`}>
         <LocalizedStringProvider locale="en" />
         <ClientProviders>
-          <nav className={styles.navbar}>
-            <span className={styles.logo}>the planets</span>
+          <div className={styles.app}>
+            <nav className={styles.navbar}>
+              <span className={styles.logo}>the planets</span>
 
-            <ul className={styles.list}>
-              {data.map((planet) => (
-                <li className={styles.listItem} key={planet.name}>
-                  <Link href={`/${planet.name}`}>{planet.name}</Link>
-                </li>
-              ))}
-            </ul>
+              <ul className={styles.list}>
+                {data.map((planet) => (
+                  <li className={styles.listItem} key={planet.name}>
+                    <Link href={`/${planet.name}`}>{planet.name}</Link>
+                  </li>
+                ))}
+              </ul>
 
-            <MobileMenu />
-          </nav>
-          {children}
+              <MobileMenu />
+            </nav>
+            {children}
+          </div>
         </ClientProviders>
         <ThemeSetter />
       </body>

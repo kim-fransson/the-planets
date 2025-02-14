@@ -26,7 +26,7 @@ export default function PlanetPage() {
   // const selectedSection = [...selected].join(", ");
 
   return (
-    <main>
+    <main className={styles.main}>
       <ToggleButtonGroup
         disallowEmptySelection
         className={styles.tabs}
@@ -40,10 +40,8 @@ export default function PlanetPage() {
         ))}
       </ToggleButtonGroup>
 
-      {/* <img
-        src={planet.images.planet}
-        alt={`colorful image of the planet ${planet.name}`}
-      /> */}
+      <section className={styles.section}>To be continued...</section>
+
       <div className={styles.stats}>
         <StatsArticle heading="rotation time" text={planet.rotation} />
         <StatsArticle heading="revolution time" text={planet.revolution} />

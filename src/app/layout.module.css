@@ -1,3 +1,9 @@
+.app {
+  display: grid;
+  height: 100dvh;
+  grid-template-rows: min-content 1fr;
+}
+
 .navbar {
   padding: 18px 28px 18px 36px;
   display: flex;
