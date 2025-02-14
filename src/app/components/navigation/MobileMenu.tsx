@@ -16,7 +16,6 @@ import { Planet } from "@/app/types";
 
 const MotionButton = motion.create(Button);
 const MotionModal = motion.create(Modal);
-const MotionDialog = motion.create(Dialog);
 
 export default function MobileMenu() {
   const [isOpen, setOpen] = useState(false);
@@ -56,7 +55,7 @@ export default function MobileMenu() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <MotionDialog aria-label="planet links" className={styles.dialog}>
+            <Dialog aria-label="planet links" className={styles.dialog}>
               {data.map((planet) => (
                 <Link
                   onPress={() => handleLinkPress(planet)}
@@ -68,7 +67,7 @@ export default function MobileMenu() {
                   <ChevronIcon />
                 </Link>
               ))}
-            </MotionDialog>
+            </Dialog>
           </MotionModal>
         )}
       </AnimatePresence>
