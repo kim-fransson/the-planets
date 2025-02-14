@@ -9,6 +9,7 @@ import { Key } from "react-aria-components";
 import ToggleButton from "../components/buttons/ToggleButton";
 
 import styles from "./page.module.css";
+import StatsArticle from "./components/StatsArticle";
 
 const sections = ["overview", "structure", "surface"];
 
@@ -38,6 +39,17 @@ export default function PlanetPage() {
           </ToggleButton>
         ))}
       </ToggleButtonGroup>
+
+      {/* <img
+        src={planet.images.planet}
+        alt={`colorful image of the planet ${planet.name}`}
+      /> */}
+      <div className={styles.stats}>
+        <StatsArticle heading="rotation time" text={planet.rotation} />
+        <StatsArticle heading="revolution time" text={planet.revolution} />
+        <StatsArticle heading="radius" text={planet.radius} />
+        <StatsArticle heading="average temp" text={planet.temperature} />
+      </div>
     </main>
   );
 }
