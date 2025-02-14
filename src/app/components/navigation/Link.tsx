@@ -21,6 +21,7 @@ export default function Link({
   href,
   ...rest
 }: LinkProps) {
+  const isPlanetVariant = variant === "planet";
   return (
     <AriaLink
       {...rest}
@@ -29,14 +30,14 @@ export default function Link({
     >
       {({ isHovered }) => (
         <>
-          {isHovered && (
+          {isHovered && !isPlanetVariant && (
             <motion.div
               className={styles.hoverLine}
               layoutId="hoverLine"
               key="hoverLine"
             />
           )}
-          {variant === "planet" && <span className={styles.miniPlanet} />}
+          {isPlanetVariant && <span className={styles.miniPlanet} />}
           {children}
         </>
       )}
