@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { Planet } from "../types";
+import { Planet, PlanetNames } from "../types";
 import data from "../data.json";
 import { redirect, usePathname } from "next/navigation";
 import ToggleButtonGroup from "../components/buttons/ToggleButtonGroup";
@@ -12,6 +12,7 @@ import SourceIcon from "@/public/assets/icon-source.svg";
 
 import styles from "./page.module.css";
 import StatsArticle from "./components/StatsArticle";
+import PlanetImage from "./components/PlanetImage";
 
 const sections = [
   { key: "overview", value: "overview" },
@@ -34,12 +35,10 @@ export default function PlanetPage() {
     "overview" | "structure" | "geology"
   >;
 
-  const mainImage = () => {
-    if (selectedSection === "structure") {
-      return planet.images.structure;
-    }
-    return planet.images.overview;
-  };
+  const planetImage =
+    selectedSection === "structure"
+      ? planet.images.structure
+      : planet.images.overview;
 
   return (
     <main className={styles.main}>
@@ -58,12 +57,16 @@ export default function PlanetPage() {
 
       <section className={styles.section}>
         <div className={styles.imageContainer}>
-          <img src={mainImage()} alt="" />
+          <PlanetImage
+            name={planet.name as PlanetNames}
+            src={planetImage}
+            alt={`Planet ${planet.name}`}
+          />
           {selectedSection === "geology" && (
             <img
               className={styles.surfaceImage}
               src={planet.images.geology}
-              alt=""
+              alt={`Surface of planet ${planet.name}`}
             />
           )}
         </div>

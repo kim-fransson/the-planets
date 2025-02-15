@@ -7,7 +7,7 @@
 }
 
 .modal {
-  position: absolute;
+  position: fixed;
   top: 73px;
   background: var(--background);
   outline: none;

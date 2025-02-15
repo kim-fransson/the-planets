@@ -1,3 +1,13 @@
+export type PlanetNames =
+  | "mercury"
+  | "venus"
+  | "earth"
+  | "mars"
+  | "jupiter"
+  | "saturn"
+  | "uranus"
+  | "neptune";
+
 export interface Planet {
   name: string;
   overview: {
