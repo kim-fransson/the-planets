@@ -5,7 +5,7 @@
     "image"
     "information"
     "stats";
-  grid-template-rows: min-content 1fr minmax(0, 327px) minmax(0, 327px);
+  grid-template-rows: min-content 1fr minmax(0, 235px) minmax(0, 216px);
   grid-template-columns: 1fr;
   gap: 20px;
   padding: var(--main-padding-t) var(--main-padding-x) var(--main-padding-b)
@@ -22,26 +22,8 @@
   counter-reset: tabs;
 }
 
-.imageContainer {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 40px;
-  grid-area: image;
-}
-
-.surfaceImage {
-  position: absolute;
-  width: 100px;
-  translate: -50% 50%;
-  left: 50%;
-  bottom: 0;
-}
-
 .information {
   grid-area: information;
-  margin-top: 100px;
 }
 
 .heading {
@@ -98,7 +80,7 @@
       "image image"
       "information tabs"
       "stats stats";
-    grid-template-rows: 1fr minmax(0, 339px) minmax(0, 88px);
+    grid-template-rows: 1fr minmax(0, 253px) minmax(0, 88px);
     grid-template-columns: 1fr 1fr;
     column-gap: 40px;
   }
@@ -115,12 +97,8 @@
     gap: 16px;
   }
 
-  .surfaceImage {
-    bottom: 10%;
-  }
-
   .information {
-    margin-top: 0;
+    /* margin-top: 0; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -153,26 +131,16 @@
       "image information"
       "image tabs"
       "stats stats";
-    grid-template-rows: 1fr 1fr minmax(0, 128px);
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-  }
-
-  .imageContainer {
-    margin: 0;
-  }
-
-  .surfaceImage {
-    width: 163px;
-    bottom: 20%;
-  }
-
-  .information {
-    align-self: flex-end;
+    grid-template-rows: 1fr 1fr min-content;
+    grid-template-columns: 1fr minmax(0, 350px);
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    gap: 20px;
   }
 
   .tabs {
-    align-self: flex-start;
+    align-self: center;
   }
 
   .heading {

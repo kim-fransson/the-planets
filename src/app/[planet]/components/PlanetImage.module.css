@@ -1,0 +1,34 @@
+.imageContainer {
+  position: relative;
+  grid-area: image;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.surfaceImage {
+  position: absolute;
+  width: 100px;
+  left: 55%;
+  bottom: -5%;
+  rotate: -45deg;
+}
+
+@media (width >= 768px) {
+  .surfaceImage {
+    bottom: 10%;
+    left: 55%;
+    bottom: -5%;
+  }
+}
+
+@media (width >= 1440px) {
+  .imageContainer {
+    margin: 0;
+  }
+
+  .surfaceImage {
+    width: 163px;
+    bottom: 20%;
+  }
+}

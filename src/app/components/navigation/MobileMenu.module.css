@@ -8,19 +8,19 @@
 
 .modal {
   position: fixed;
-  top: 73px;
+  top: var(--navbar-height);
   background: var(--background);
   outline: none;
   position: fixed;
   width: 100dvw;
-  height: calc(100dvh - 72px);
+  height: calc(100dvh - var(--navbar-height));
 }
 
 .dialog {
   outline: none;
   height: 100%;
   display: grid;
-  padding: 44px 20px;
+  padding: 40px var(--main-padding-x);
 }
 
 @media (width >= 768px) {

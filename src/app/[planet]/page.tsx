@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Planet, PlanetNames } from "../types";
@@ -9,10 +8,10 @@ import { useState } from "react";
 import { Key, Link } from "react-aria-components";
 import ToggleButton from "../components/buttons/ToggleButton";
 import SourceIcon from "@/public/assets/icon-source.svg";
-
-import styles from "./page.module.css";
 import StatsArticle from "./components/StatsArticle";
 import PlanetImage from "./components/PlanetImage";
+
+import styles from "./page.module.css";
 
 const sections = [
   { key: "overview", value: "overview" },
@@ -56,20 +55,13 @@ export default function PlanetPage() {
         ))}
       </ToggleButtonGroup>
 
-      <div className={styles.imageContainer}>
-        <PlanetImage
-          name={planet.name as PlanetNames}
-          src={planetImage}
-          alt={`Planet ${planet.name}`}
-        />
-        {selectedSection === "geology" && (
-          <img
-            className={styles.surfaceImage}
-            src={planet.images.geology}
-            alt={`Surface of planet ${planet.name}`}
-          />
-        )}
-      </div>
+      <PlanetImage
+        name={planet.name as PlanetNames}
+        src={planetImage}
+        alt={`Planet ${planet.name}`}
+        showSurface={selectedSection === "geology"}
+        surfaceSrc={planet.images.geology}
+      />
 
       <article className={styles.information}>
         <h1 className={styles.heading}>{planet.name}</h1>

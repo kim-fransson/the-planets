@@ -4,6 +4,9 @@ import { PlanetNames } from "@/app/types";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+import styles from "./PlanetImage.module.css";
+import { AnimatePresence, motion } from "motion/react";
+
 type ScreenSize = "small" | "tablet" | "desktop";
 
 const baseSizes: Record<PlanetNames, number> = {
@@ -37,14 +40,20 @@ function getPlanetWidth(planet: PlanetNames, screenWidth: number): number {
   return Math.round(baseSizes[planet] * screenMultipliers[screenSize]);
 }
 
+const MotionImage = motion.create(Image);
+
 export default function PlanetImage({
   name,
   src,
   alt,
+  showSurface,
+  surfaceSrc,
 }: {
   name: PlanetNames;
   src: string;
   alt: string;
+  showSurface: boolean;
+  surfaceSrc: string;
 }) {
   const [size, setSize] = useState(0);
 
@@ -52,5 +61,32 @@ export default function PlanetImage({
     setSize(getPlanetWidth(name, window.innerWidth));
   }, [name]);
 
-  return <Image width={size} height={size} src={src} alt={alt} priority />;
+  return (
+    <div className={styles.imageContainer}>
+      <AnimatePresence>
+        <MotionImage
+          className={styles.planetImage}
+          width={size}
+          height={size}
+          src={src}
+          alt={alt}
+          priority
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        />
+        {showSurface && (
+          <MotionImage
+            className={styles.surfaceImage}
+            src={surfaceSrc}
+            alt={`Surface of planet ${name}`}
+            width={0}
+            height={0}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+          />
+        )}
+      </AnimatePresence>
+    </div>
+  );
 }
