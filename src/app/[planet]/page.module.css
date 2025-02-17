@@ -2,9 +2,10 @@
   display: grid;
   grid-template-areas:
     "tabs"
-    "section"
+    "image"
+    "information"
     "stats";
-  grid-template-rows: min-content 1fr auto;
+  grid-template-rows: min-content 1fr minmax(0, 327px) minmax(0, 327px);
   grid-template-columns: 1fr;
   padding: 0 20px 40px 20px;
   gap: 20px;
@@ -20,18 +21,13 @@
   counter-reset: tabs;
 }
 
-.section {
-  grid-area: section;
-  display: grid;
-  grid-template-rows: min-content 1fr;
-}
-
 .imageContainer {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 40px;
+  grid-area: image;
 }
 
 .surfaceImage {
@@ -42,8 +38,12 @@
   bottom: 0;
 }
 
-.heading {
+.information {
+  grid-area: information;
   margin-top: 100px;
+}
+
+.heading {
   font-family: var(--font-antonio);
   font-size: 2.5rem;
   line-height: 3.25rem;
@@ -86,13 +86,96 @@
 }
 
 @media (width >= 768px) {
+  .main {
+    grid-template-areas:
+      "image image"
+      "information tabs"
+      "stats stats";
+    grid-template-rows: 1fr minmax(0, 339px) minmax(0, 88px);
+    grid-template-columns: 1fr 1fr;
+    padding: 36px;
+    column-gap: 40px;
+  }
   .stats {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .tabs {
+    border: none;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+    gap: 16px;
+  }
+
+  .surfaceImage {
+    bottom: 10%;
+  }
+
+  .information {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+
+  .heading {
+    font-size: 3rem;
+    line-height: 3.875rem;
+  }
+
+  .text {
+    text-align: start;
+    margin-top: 30px;
+    font-size: 0.6875rem;
+    line-height: 1.375rem;
+    max-width: 340px;
+  }
+
+  .source {
+    margin-top: 40px;
+    font-size: 0.75rem;
+    line-height: 1.5625rem;
   }
 }
 
 @media (width >= 1440px) {
+  .main {
+    grid-template-areas:
+      "image information"
+      "image tabs"
+      "stats stats";
+    grid-template-rows: 1fr auto minmax(0, 128px);
+    grid-template-columns: 1fr 1fr;
+    padding: 55px;
+    column-gap: 80px;
+    row-gap: 40px;
+  }
+
+  .surfaceImage {
+    width: 163px;
+    bottom: 20%;
+  }
+
+  .heading {
+    font-size: 5rem;
+    line-height: 6.5rem;
+  }
+
+  .text {
+    font-size: 0.875rem;
+    line-height: 1.5625rem;
+    max-width: 350px;
+  }
+
+  .source {
+    font-size: 0.875rem;
+    line-height: 1.5625rem;
+    margin-top: 20px;
+  }
+
   .stats {
-    gap: 18px;
+    margin-top: 80px;
   }
 }

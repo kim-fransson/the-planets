@@ -55,22 +55,22 @@ export default function PlanetPage() {
         ))}
       </ToggleButtonGroup>
 
-      <section className={styles.section}>
-        <div className={styles.imageContainer}>
-          <PlanetImage
-            name={planet.name as PlanetNames}
-            src={planetImage}
-            alt={`Planet ${planet.name}`}
+      <div className={styles.imageContainer}>
+        <PlanetImage
+          name={planet.name as PlanetNames}
+          src={planetImage}
+          alt={`Planet ${planet.name}`}
+        />
+        {selectedSection === "geology" && (
+          <img
+            className={styles.surfaceImage}
+            src={planet.images.geology}
+            alt={`Surface of planet ${planet.name}`}
           />
-          {selectedSection === "geology" && (
-            <img
-              className={styles.surfaceImage}
-              src={planet.images.geology}
-              alt={`Surface of planet ${planet.name}`}
-            />
-          )}
-        </div>
+        )}
+      </div>
 
+      <article className={styles.information}>
         <h1 className={styles.heading}>{planet.name}</h1>
         <p className={styles.text}>{planet[selectedSection].content}</p>
         <span className={styles.source}>
@@ -84,7 +84,7 @@ export default function PlanetPage() {
             <SourceIcon />
           </Link>
         </span>
-      </section>
+      </article>
 
       <div className={styles.stats}>
         <StatsArticle heading="rotation time" text={planet.rotation} />
