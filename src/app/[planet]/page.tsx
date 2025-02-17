@@ -49,7 +49,7 @@ export default function PlanetPage() {
         onSelectionChange={setSelected}
       >
         {sections.map((section) => (
-          <ToggleButton variant="tab" key={section.key} id={section.key}>
+          <ToggleButton key={section.key} id={section.key}>
             {section.value}
           </ToggleButton>
         ))}

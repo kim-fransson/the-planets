@@ -8,7 +8,6 @@
   letter-spacing: 0.1205rem;
   text-transform: uppercase;
   position: relative;
-
   padding: 20px 0;
 }
 
@@ -20,4 +19,53 @@
   left: 50%;
   translate: -50% 0;
   background: var(--primary-color);
+}
+
+@media (width >= 768px) {
+  .button {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    gap: 12px;
+    border: 1px solid color-mix(in oklch, var(--foreground) 20%, transparent);
+    letter-spacing: 0.1607rem;
+    counter-increment: tabs;
+    transition: all 300ms ease-out;
+    font-size: 0.5625rem;
+    letter-spacing: 0.1205rem;
+  }
+
+  .button[data-hovered] {
+    background: var(--hover);
+    border-color: var(--hover);
+  }
+
+  .button[data-selected] {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+  }
+
+  .button[data-focus-visible] {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 4px;
+    transition: none;
+  }
+
+  .button::before {
+    content: counter(tabs, decimal-leading-zero);
+    color: color-mix(in oklch, var(--foreground) 50%, transparent);
+  }
+
+  .underline {
+    display: none;
+  }
+}
+
+@media (width >= 1440px) {
+  .button {
+    font-size: 0.75rem;
+    line-height: 1.5625rem;
+    padding: 20px;
+    gap: 20px;
+  }
 }

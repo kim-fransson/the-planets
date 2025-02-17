@@ -7,27 +7,16 @@ import {
 import { motion } from "motion/react";
 
 import styles from "./ToggleButton.module.css";
-import clsx from "clsx";
-
-interface ToggleButtonProps extends AriaToggleButtonProps {
-  variant: "default" | "tab";
-}
 
 export default function ToggleButton({
-  variant,
   children,
   ...rest
-}: ToggleButtonProps) {
-  const isTabVariant = variant === "tab";
-
+}: AriaToggleButtonProps) {
   return (
-    <AriaToggleButton
-      {...rest}
-      className={clsx(styles.button, styles[variant])}
-    >
+    <AriaToggleButton {...rest} className={styles.button}>
       {({ isSelected }) => (
         <>
-          {isSelected && isTabVariant && (
+          {isSelected && (
             <motion.div
               className={styles.underline}
               layoutId="underline"

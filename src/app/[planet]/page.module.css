@@ -17,6 +17,7 @@
   border-bottom: 1px solid
     color-mix(in oklch, var(--foreground) 20%, transparent);
   grid-area: tabs;
+  counter-reset: tabs;
 }
 
 .section {
