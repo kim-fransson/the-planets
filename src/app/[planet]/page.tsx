@@ -47,6 +47,7 @@ export default function PlanetPage() {
         className={styles.tabs}
         selectedKeys={selected}
         onSelectionChange={setSelected}
+        orientation="vertical"
       >
         {sections.map((section) => (
           <ToggleButton key={section.key} id={section.key}>

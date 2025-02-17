@@ -13,6 +13,11 @@
   --saturn-color: oklch(0.59 0.17 39.74);
   --uranus-color: oklch(0.73 0.13 175.76);
   --neptune-color: oklch(0.56 0.21 263.38);
+
+  --main-padding-x: 24px;
+  --main-padding-t: 0px;
+  --main-padding-b: 40px;
+  --navbar-height: 68px;
 }
 
 [data-theme="mercury"] {
@@ -87,4 +92,22 @@ button {
 img {
   max-width: 100%;
   height: auto;
+}
+
+@media (width >= 768px) {
+  :root {
+    --navbar-height: 159px;
+    --main-padding-x: 40px;
+    --main-padding-t: 32px;
+    --main-padding-b: 32px;
+  }
+}
+
+@media (width >= 1440px) {
+  :root {
+    --navbar-height: 85px;
+    --main-padding-x: 36px;
+    --main-padding-t: 50px;
+    --main-padding-b: 50px;
+  }
 }

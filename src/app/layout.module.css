@@ -1,11 +1,12 @@
 .app {
   display: grid;
-  height: 100dvh;
-  grid-template-rows: min-content 1fr;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr;
 }
 
 .navbar {
-  padding: 20px 12px 20px 20px;
+  padding: 0 var(--main-padding-x);
+  height: var(--navbar-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,28 +24,42 @@
 
 .list {
   display: none;
+  height: 100%;
 }
 
 .listItem {
-  display: flex;
+  height: 100%;
 }
 
 @media (width >= 768px) {
   .navbar {
     flex-direction: column;
-    padding: 32px 16px 0 32px;
+    align-items: center;
+    justify-content: space-around;
   }
 
   .list {
     display: flex;
     align-items: center;
+    height: auto;
+  }
+
+  .listItem {
+    height: auto;
   }
 }
 
 @media (width >= 1440px) {
   .navbar {
-    padding: 0 16px 0 32px;
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  .list {
+    height: 100%;
+  }
+
+  .listItem {
+    height: 100%;
   }
 }

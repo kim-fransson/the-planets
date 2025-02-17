@@ -1,14 +1,16 @@
-import { Antonio, League_Spartan } from "next/font/google";
 import "./globals.css";
 import styles from "./layout.module.css";
+import { Antonio, League_Spartan } from "next/font/google";
+
+import { LocalizedStringProvider } from "react-aria-components/i18n";
 
 import ThemeSetter from "./components/ThemeSetter";
+import Link from "./components/navigation/Link";
+import MobileMenu from "./components/navigation/MobileMenu";
+
 import { ClientProviders } from "./providers";
 
 import data from "./data.json";
-import { LocalizedStringProvider } from "react-aria-components/i18n";
-import Link from "./components/navigation/Link";
-import MobileMenu from "./components/navigation/MobileMenu";
 
 const antonio = Antonio({
   variable: "--font-antonio",
