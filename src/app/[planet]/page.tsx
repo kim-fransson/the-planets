@@ -9,7 +9,6 @@ interface PlanetPageProps {
   params: Promise<{
     planet: string;
   }>;
-  children: React.ReactNode;
 }
 
 export async function generateStaticParams() {
@@ -39,7 +38,7 @@ export async function generateMetadata(
   };
 }
 
-export default async function PlanetLayout(props: PlanetPageProps) {
+export default async function PlanetPage(props: PlanetPageProps) {
   const params = await props.params;
   const planet = data.find((p: PlanetType) => p.name === params.planet);
 
