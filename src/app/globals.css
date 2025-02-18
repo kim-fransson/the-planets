@@ -60,13 +60,25 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background) url("/assets/background-stars.svg") no-repeat
-    50% 10%;
+  background: var(--background);
   font-family: var(--font-spartan);
   font-size: 0.875rem;
   line-height: 1.5625rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("/assets/background-stars.svg") no-repeat center;
+  background-size: cover;
+  z-index: -1; /* Ensure it stays behind everything */
+  animation: spaceAnimation 300s infinite linear;
 }
 
 * {
@@ -109,5 +121,14 @@ img {
     --main-padding-x: 36px;
     --main-padding-t: 50px;
     --main-padding-b: 50px;
+  }
+}
+
+@keyframes spaceAnimation {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(2);
   }
 }
