@@ -110,7 +110,7 @@
   }
 
   .text {
-    text-align: flex-start;
+    text-align: start;
     margin-top: 30px;
     font-size: 0.6875rem;
     line-height: 1.375rem;
