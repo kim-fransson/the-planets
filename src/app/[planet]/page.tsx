@@ -4,7 +4,7 @@ import { Planet, PlanetNames } from "../types";
 import data from "../data.json";
 import { redirect, usePathname } from "next/navigation";
 import ToggleButtonGroup from "../components/buttons/ToggleButtonGroup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Key, Link } from "react-aria-components";
 import ToggleButton from "../components/buttons/ToggleButton";
 import SourceIcon from "@/public/assets/icon-source.svg";
@@ -22,6 +22,14 @@ const sections = [
 export default function PlanetPage() {
   const pathname = usePathname();
   const planet = data.find((p: Planet) => pathname.includes(p.name));
+
+  const [isTablet, setIsTablet] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsTablet(window.innerWidth >= 768);
+    }
+  }, []);
 
   if (!planet) {
     redirect("/earth");
@@ -48,11 +56,13 @@ export default function PlanetPage() {
         onSelectionChange={setSelected}
         orientation="vertical"
       >
-        {sections.map((section) => (
-          <ToggleButton key={section.key} id={section.key}>
-            {section.value}
-          </ToggleButton>
-        ))}
+        <ToggleButton id="overview">overview</ToggleButton>
+        <ToggleButton id="structure">
+          {isTablet ? "internal structure" : "structure"}
+        </ToggleButton>
+        <ToggleButton id="geology">
+          {isTablet ? "surface geology" : "surface"}
+        </ToggleButton>
       </ToggleButtonGroup>
 
       <PlanetImage

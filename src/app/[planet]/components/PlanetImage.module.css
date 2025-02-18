@@ -23,10 +23,6 @@
 }
 
 @media (width >= 1440px) {
-  .imageContainer {
-    margin: 0;
-  }
-
   .surfaceImage {
     width: 163px;
     bottom: 20%;
